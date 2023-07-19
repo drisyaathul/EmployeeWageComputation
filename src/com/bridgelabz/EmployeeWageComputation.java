@@ -5,31 +5,32 @@ import java.util.Random;
 public class EmployeeWageComputation {
     public static void main(String[] args) {
         System.out.println("*** Welcome To Employee Wage Computation Program ***");
-
-        //UC1:Check Employee is Present or Absent
-        //UC3:Part-Time Employee and Wage
+        
+        int wagePerHour = 20;
+        int workingHour = 0;
+        
         Random random = new Random();
         int attendance = random.nextInt(3);
-        if (attendance == 1) {
-            System.out.println("Employee is Present");
-        } else if (attendance == 0) {
-            System.out.println("Employee is Absent");
-        } else
-            System.out.println("Employee is Part-Time");
 
-        //UC2:Daily Employee Wage
-        int wagePerHour = 20;
-        int fullDayHour = 8;
-        int partTimeHour = 4;
-
-        int dailyWage = attendance * fullDayHour * wagePerHour;
-        int partTimeWage = partTimeHour * wagePerHour;
-
-        if (attendance == 1) {
-            System.out.println("Employee Daily Wage : "+dailyWage);
-        } else if (attendance == 0) {
-            System.out.println("Employee Daily Wage : "+dailyWage);
-        } else
-            System.out.println("Employee Part-Time Wage : "+partTimeWage);
+        switch (attendance) {
+            case 0:
+                System.out.println("Employee is Absent");
+                workingHour = 0;
+                break;
+            case 1:
+                System.out.println("Employee is Present");
+                workingHour = 8;
+                break;
+            case 2:
+                System.out.println("Employee is Part-Time");
+                workingHour = 4;
+                break;
+            default:
+                System.out.println("INVALID");
+        }
+        
+        int dailyWage = workingHour * wagePerHour;
+        System.out.println("Employee Daily Wage : "+dailyWage);
+        
     }
 }
