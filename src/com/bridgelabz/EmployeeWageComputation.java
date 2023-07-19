@@ -8,6 +8,7 @@ public class EmployeeWageComputation {
         
         int wagePerHour = 20;
         int workingHour = 0;
+        int workingDays = 20;
         
         Random random = new Random();
         int attendance = random.nextInt(3);
@@ -28,9 +29,10 @@ public class EmployeeWageComputation {
             default:
                 System.out.println("INVALID");
         }
-        
         int dailyWage = workingHour * wagePerHour;
+        int monthlyWage = workingDays * dailyWage;
         System.out.println("Employee Daily Wage : "+dailyWage);
-        
+        System.out.println("Employee Monthly Wage : "+monthlyWage);
+
     }
 }
